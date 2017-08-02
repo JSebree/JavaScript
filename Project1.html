@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <title>
+        JSebree
+    </title>
+    <link href="includes/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="includes/css/mycss.css" rel="stylesheet">
+    <script type="text/javascript" src="includes/js/jQuery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="includes/bootstrap/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Niconne|Ubuntu|Vibur" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+ScriptLobster+Two|Montserrat" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        $(document).ready(function() {
+            $('#myimg').each(function() {
+                $(this).hover(
+                    function() {
+                        $(this).attr('src', preloadImage.src);
+                    },
+                    function () {
+                        $(this).attr('src', imgFile);
+                    }
+                );
+            });
+        }); // end ready
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="about">
+            <div class="container">
+                <h2>
+                    About Me
+                </h2>
+                <p class="description">
+                    I'm the contemplative, creative type. I'm a hoarder of ideas. I like to take the complex ones, break
+                    them down to their core, and build them up into something practical. I believe that we are living in an
+                    age where our world is transforming- faster, smarter - every day. It's an information revolution. And
+                    I'm glad to take part in that movement. <br>
+                    <br>
+                    I take a particular fascination in interactive applications. Web/software development has become my
+                    latest hobbies. Most of my professional experiences has been in financial services. As such, much of my
+                    experience was building efficient solutions to database management supporting financial institutions.<br>
+                    <br>
+                    I'm currently focused on maximizing my exposure to web and software development whether it requires
+                    close team interaction, or virtual projects with little supervisory oversight.
+                </p>
+                <br>
+            </div>
+            <div class="aboutpic">
+                <img src="images/dome.jpg" onmouseover="this.src='images/kubla.jpg'" onmouseout="this.src='images/dome.jpg'" class="myphoto">
+            </div>
+            <br>
+        </div>
+        <hr>
+    <div id="footer" class="modal-footer">
+        <p>
+            Copyright 2017 by Jerick Sebree<br>
+            jsebree.com<br>
+            jerick.sebree@gmail.com
+        </p>
+    </div>
+</body>
+</html>

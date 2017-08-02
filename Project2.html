@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Form Fun</title>
+    <link href="Tutorials/_css/site.css" rel="stylesheet">
+    <link href="includes/css/project.css" rel="stylesheet">
+    <style>
+        #signup label.error {
+            font-size: 0.8em;
+            color: #F00;
+            font-weight: bold;
+            display: block;
+            margin-left: 215px;
+        }
+        #signup  input.error, #signup select.error  {
+            background: #FFA9B8;
+            border: 1px solid red;
+        }
+        body {
+            background-size: cover;
+        }
+    </style>
+    <script src="Tutorials/_js/jquery.min.js"></script>
+    <script src="Tutorials/chapter08/jquery_validate/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#signup').validate({
+                rules: {
+                    firstname: {
+                        required: true,
+                        rangelength:[2,20]
+                    },
+                    lastname: {
+                        required: true,
+                        rangelength:[2,20]
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    confirm_email: {equalTo:'#email'},
+                    spam: "required"
+                },
+                messages: {
+                    firstname: {
+                        required: "Please enter your First Name.",
+                        rangelength: "Password must be between 2 and 20 characters long."
+                    },
+                    lastname: {
+                        required: "Please enter your Last Name.",
+                        rangelength: "Password must be between 2 and 20 characters long."
+                    },
+                    email: {
+                        required: "Please supply an e-mail address.",
+                        email: "This is not a valid email address."
+                    },
+                    confirm_email: {
+                        equalTo: "Emails do not match."
+                    }
+                },
+                errorPlacement: function(error, element) {
+                    if ( element.is(":radio") || element.is(":checkbox")) {
+                        error.appendTo( element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                }
+            });
+        }); // end ready
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="content">
+        <div class="main">
+            <h2>Interested in Web Services?</h2>
+            <form action="Tutorials/chapter08/process.html" method="post" name="signup" id="signup">
+                <div>
+                    <label for="firstname" class="label">First Name</label>
+                    <input name="firstname" type="text" id="firstname" >
+                </div>
+                <div>
+                    <label for="lastname" class="label">Last Name</label>
+                    <input name="lastname" type="text" id="lastname" >
+                </div>
+                <div>
+                    <label for="email" class="label">E-mail Address</label>
+                    <input name="email" type="text" id="email">
+                </div>
+                <div>
+                    <label for="confirm_email" class="label">Confirm E-mail</label>
+                    <input name="confirm_email" type="text" id="confirm_email">
+                </div>
+                <div class="labelBlock">Stay up to date on the best deals of web development services?</div>
+                <div class="indent">
+                    <input  type="radio" name="spam" id="yes" value="yes">
+                    <label for="yes">Show me the deals!</label>
+                    <input type="radio" name="spam" id="no" value="no">
+                    <label for="no">Maybe later</label>
+                </div>
+                <div>
+                    <label for="comments" class="label">Message for the developer</label>
+                    <textarea name="comments" cols="15" rows="5" id="comments"></textarea>
+                </div>
+                <div>
+                    <input type="submit" name="submit" id="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="footer" class="modal-footer">
+    <p>
+        Copyright 2017 by Jerick Sebree<br>
+        jsebree.com<br>
+        jerick.sebree@gmail.com
+    </p>
+</div>
+</body>
+</html>
